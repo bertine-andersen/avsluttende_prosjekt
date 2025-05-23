@@ -7,8 +7,6 @@
 body {
     font-family: "Montserrat", sans-serif;
     background-color: hsl(30, 38%, 92%);
-    padding-top: 0;
-    margin-top: 0;
 }
 
 nav {
@@ -26,22 +24,20 @@ nav {
 }
 
 main {
-    padding-top: 80px;
-}
-
-#cart {
-    font-size: 18px;
-    cursor: pointer;
-}
-
-#product-list {
+    padding: 140px 40px 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    padding: 40px;
     max-width: 1200px;
     margin: auto;
+}
+
+#cart {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .masterdiv {
@@ -94,12 +90,45 @@ button {
 }
 
 #cart-items {
-    padding: 20px;
+    position: fixed;
+    top: 80px;
+    right: -400px;
+    width: 300px;
+    height: calc(100% - 80px);
     background-color: white;
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-    border-radius: 10px;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cart-items.åpen {
+    right: 0;
+}
+
+#toggle-cart {
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#toggle-cart i {
+    font-size: 20px;
+}
+
+#lukk-cart {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }
 
 #cart-list li {
@@ -117,6 +146,18 @@ button {
     cursor: pointer;
 }
 
+#clear-cart-btn {
+    background-color: #dc3545;
+    margin-top: 10px;
+}
+
+#empty-cart-msg {
+    color: gray;
+    font-style: italic;
+    display: none;
+    margin-top: 10px;
+}
+
 @media (max-width: 768px) {
     .masterdiv {
         width: 90%;
@@ -126,10 +167,6 @@ button {
         flex-direction: column;
         gap: 10px;
         text-align: center;
-    }
-
-    #product-list {
-        padding: 20px;
     }
 
     button {
