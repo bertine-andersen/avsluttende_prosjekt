@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Playfair_Display", sans-serif;
     background-color: hsl(30, 38%, 92%);
 }
 
@@ -91,16 +91,16 @@ button {
 
 #cart-items {
     position: fixed;
-    top: 80px;
+    top: 67.5px;
     right: -400px;
     width: 300px;
-    height: calc(100% - 80px);
+    height: calc(100% - 67.5px);
     background-color: white;
     border-left: 1px solid #ddd;
     padding: 20px;
     overflow-y: auto;
-    transition: right 0.3s ease-in-out;
     z-index: 999;
+    transition: right 0.3s ease-in-out;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -134,6 +134,7 @@ button {
 #cart-list li {
     margin-bottom: 10px;
     font-size: 16px;
+    padding-left: 10px;
 }
 
 #cart-list button {

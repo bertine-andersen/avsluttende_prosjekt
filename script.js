@@ -19,13 +19,19 @@ const produkter = [
   }
 ];
 
-let handlekurv = JSON.parse(localStorage.getItem("handlekurv")) || [];
+let handlekurv = [];
+
+if (localStorage.getItem("handlekurv")) {
+  handlekurv = JSON.parse(localStorage.getItem("handlekurv"));
+}
 
 function visProdukter() {
   const liste = document.getElementById("product-list");
   liste.innerHTML = "";
 
-  produkter.forEach((p, i) => {
+  for (let i = 0; i < produkter.length; i++) {
+    const p = produkter[i];
+
     const produktDiv = document.createElement("div");
     produktDiv.className = "masterdiv";
     produktDiv.innerHTML = `
@@ -35,19 +41,32 @@ function visProdukter() {
         <p>${p.beskrivelse}</p>
         <p class="sale">$${p.pris.toFixed(2)}</p>
         <button onclick="leggTilIKurv(${i})"><i class="fas fa-cart-plus"></i> Legg i handlekurv</button>
-      </div>`;
+      </div>
+    `;
     liste.appendChild(produktDiv);
-  });
+  }
 }
 
 function leggTilIKurv(indeks) {
-  const eksisterende = handlekurv.find(vare => vare.navn === produkter[indeks].navn);
-  if (eksisterende) {
-    eksisterende.antall += 1;
-  } else {
-    const nyVare = { ...produkter[indeks], antall: 1 };
+  let funnet = false;
+
+  for (let i = 0; i < handlekurv.length; i++) {
+    if (handlekurv[i].navn === produkter[indeks].navn) {
+      handlekurv[i].antall++;
+      funnet = true;
+      break;
+    }
+  }
+
+  if (!funnet) {
+    const nyVare = {
+      navn: produkter[indeks].navn,
+      pris: produkter[indeks].pris,
+      antall: 1
+    };
     handlekurv.push(nyVare);
   }
+
   lagreHandlekurv();
   visHandlekurv();
 }
@@ -58,6 +77,7 @@ function fjernFraKurv(indeks) {
   } else {
     handlekurv.splice(indeks, 1);
   }
+
   lagreHandlekurv();
   visHandlekurv();
 }
@@ -79,14 +99,18 @@ function visHandlekurv() {
 
   liste.innerHTML = "";
   let total = 0;
+  let antall = 0;
 
-  handlekurv.forEach((vare, i) => {
+  for (let i = 0; i < handlekurv.length; i++) {
+    const vare = handlekurv[i];
     total += vare.pris * vare.antall;
+    antall += vare.antall;
+
     const li = document.createElement("li");
     li.innerHTML = `${vare.navn} x${vare.antall} - $${(vare.pris * vare.antall).toFixed(2)} 
       <button onclick="fjernFraKurv(${i})">Fjern</button>`;
     liste.appendChild(li);
-  });
+  }
 
   if (handlekurv.length > 0) {
     const totalLi = document.createElement("li");
@@ -97,16 +121,16 @@ function visHandlekurv() {
     tomMelding.style.display = "block";
   }
 
-  teller.textContent = handlekurv.reduce((sum, v) => sum + v.antall, 0);
+  teller.textContent = antall;
 }
 
-document.getElementById("toggle-cart").addEventListener("click", () => {
+document.getElementById("toggle-cart").addEventListener("click", function () {
   document.getElementById("cart-items").classList.toggle("åpen");
 });
 
 document.getElementById("clear-cart-btn").addEventListener("click", tømHandlekurv);
 
-document.getElementById("lukk-cart").addEventListener("click", () => {
+document.getElementById("lukk-cart").addEventListener("click", function () {
   document.getElementById("cart-items").classList.remove("åpen");
 });
 
