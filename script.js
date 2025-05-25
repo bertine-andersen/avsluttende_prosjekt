@@ -9,7 +9,7 @@ const produkter = [
     navn: "BLEU DE CHANEL",
     beskrivelse: "En hyllest til maskulin frihet uttrykt i en aromatisk, treaktig duft.",
     pris: 129.99,
-    bilde: "https://www.chanel.com/images/w_0.51,h_0.51,c_crop/q_auto:good,f_auto,fl_lossy,dpr_1.1/w_1920/bleu-de-chanel-eau-de-parfum-spray-3-4fl-oz--packshot-default-107360-9564894232606.jpg"
+    bilde: "https://fredrikoglouisa.no/wp-content/uploads/2025/05/3145891073508.jpg"
   },
   {
     navn: "DIOR Sauvage EdP",
