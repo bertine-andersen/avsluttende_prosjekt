@@ -15,8 +15,26 @@ const produkter = [
     navn: "DIOR Sauvage EdP",
     beskrivelse: "Frisk, krydret duft perfekt for kvelden.",
     pris: 139.99,
-    bilde: "https://www.dior.com/dw/image/v2/BGXS_PRD/on/demandware.static/-/Sites-master_dior/default/dwb57d0b59/Y0685240/Y0685240_F068524009_E01_GHC.jpg"
-  }
+    bilde: "https://no.swedishface.com/image/cache/data/dior/dior-sauvage-edp-60ml-900x900.jpg"
+  },
+  {
+    navn: "Versace Eros Eau De Toilette",
+    beskrivelse: "Frisk og maskulin duft for den sterke og lidenskapelige mannen som er sin egen 'master in command'.",
+    pris: 89.99,
+    bilde: "https://pricespy-75b8.kxcdn.com/product/standard/280/1652942.jpg"
+  },
+  {
+    navn: "Valentino Born in Roma",
+    beskrivelse: "En Haute Couture blomsterduft, modernisert med en overdose av tre",
+    pris: 139.99,
+    bilde: "https://cdn.tax-free.no/medias/440X440-134547243071217319611412892.jpg?context=bWFzdGVyfHByb2R1Y3RfcGljdHVyZXN8NjMyNDh8aW1hZ2UvanBlZ3xhRFF3TDJoak9TODVPREUwTnpZeU9EZ3hNRFUwTHpRME1GZzBOREJmTVRNME5UUTNNalF6TURjeE1qRTNNekU1TmpFeE5ERXlPRGt5TG1wd1p3fGM5OWFjYjVlOWU1YzRiNGRmMzU3YzM4ZDY4MzZkNWU4MzY2ODk3OTUzYzc5MjRjYThkMWJlZWE4YWFhNzIzYjc&cacheHash=6A3FDADC"
+  },
+  {
+    navn: "Burberry Goddess Eau De Parfum",
+    beskrivelse: "Vegansk gourmandduft med vanilje og lavendel.",
+    pris: 109.99,
+    bilde: "https://www.kicks.no/globalassets/integrationimages/3616302020652.jpeg?ref=3567382&hasAlpha=false"
+  },
 ];
 
 let handlekurv = [];
