@@ -2,7 +2,7 @@
     --blue: #0a1f44;
     --red: #97222e;
     --grey: #e4e4e4;
-  }
+}
 
 * {
     margin: 0;
@@ -61,14 +61,12 @@ main {
     background-color: var(--blue);
     color: white;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--blue);
 }
 
 .masterdiv img {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-bottom: 2px solid var(--blue);
 }
 
 .innhold {
@@ -77,7 +75,7 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 250px;
-    gap: 10px;  
+    gap: 10px;
 }
 
 .innhold h2 {
@@ -94,7 +92,7 @@ main {
 .sale {
     font-size: 20px;
     font-weight: bold;
-    color: #ffdd57
+    color: #ffdd57;
     font-family: "Fraunces", serif;
 }
 
@@ -115,15 +113,15 @@ button {
 
 #cart-items {
     position: fixed;
-    top: 67.5px;
+    top: 0;
     right: -400px;
-    width: 300px;
-    height: calc(100% - 67.5px);
+    width: 360px;
+    height: 100%;
     background-color: white;
     border-left: 1px solid #ddd;
     padding: 20px;
     overflow-y: auto;
-    z-index: 999;
+    z-index: 1001;
     transition: right 0.3s ease-in-out;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -155,24 +153,42 @@ button {
     cursor: pointer;
 }
 
+#cart-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 #cart-list li {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     font-size: 16px;
-    padding-left: 10px;
+    color: var(--blue);
+    gap: 10px;
 }
 
 #cart-list button {
     background-color: var(--red);
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-left: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 #clear-cart-btn {
     background-color: var(--red);
+    color: white;
     margin-top: 10px;
 }
 

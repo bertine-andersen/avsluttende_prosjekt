@@ -33,7 +33,7 @@ const produkter = [
     navn: "Burberry Goddess Eau De Parfum",
     beskrivelse: "Vegansk gourmandduft med vanilje og lavendel.",
     pris: 109.99,
-    bilde: "https://www.kicks.no/globalassets/integrationimages/3616302020652.jpeg?ref=3567382&hasAlpha=false"
+    bilde: "https://www.kicks.no/globalassets/integrationimages/3616302020652.jpeg"
   },
 ];
 
@@ -125,14 +125,17 @@ function visHandlekurv() {
     antall += vare.antall;
 
     const li = document.createElement("li");
-    li.innerHTML = `${vare.navn} x${vare.antall} - $${(vare.pris * vare.antall).toFixed(2)} 
-      <button onclick="fjernFraKurv(${i})">Fjern</button>`;
+    li.innerHTML = `
+      ${vare.navn} x${vare.antall} - $${(vare.pris * vare.antall).toFixed(2)}
+      <button onclick="fjernFraKurv(${i})">Fjern</button>
+    `;
     liste.appendChild(li);
   }
 
   if (handlekurv.length > 0) {
     const totalLi = document.createElement("li");
     totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+    totalLi.style.marginTop = "1rem"; // Litt avstand fra overskriften
     liste.appendChild(totalLi);
     tomMelding.style.display = "none";
   } else {
@@ -151,6 +154,25 @@ document.getElementById("clear-cart-btn").addEventListener("click", tømHandleku
 document.getElementById("lukk-cart").addEventListener("click", function () {
   document.getElementById("cart-items").classList.remove("åpen");
 });
+
+function toggleCart() {
+  const cart = document.getElementById("cart-items");
+  const overlay = document.getElementById("overlay");
+
+  const åpen = cart.classList.contains("åpen");
+  if (åpen) {
+    cart.classList.remove("åpen");
+    overlay.style.display = "none";
+  } else {
+    cart.classList.add("åpen");
+    overlay.style.display = "block";
+  }
+}
+
+function lukkCart() {
+  document.getElementById("cart-items").classList.remove("åpen");
+  document.getElementById("overlay").style.display = "none";
+}
 
 visProdukter();
 visHandlekurv();
