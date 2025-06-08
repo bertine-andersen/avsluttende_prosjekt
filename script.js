@@ -25,7 +25,7 @@ const produkter = [
   },
   {
     navn: "Valentino Born in Roma",
-    beskrivelse: "En Haute Couture blomsterduft, modernisert med en overdose av tre",
+    beskrivelse: "En Haute Couture blomsterduft, modernisert med en overdose av tre.",
     pris: 139.99,
     bilde: "https://cdn.tax-free.no/medias/440X440-134547243071217319611412892.jpg?context=bWFzdGVyfHByb2R1Y3RfcGljdHVyZXN8NjMyNDh8aW1hZ2UvanBlZ3xhRFF3TDJoak9TODVPREUwTnpZeU9EZ3hNRFUwTHpRME1GZzBOREJmTVRNME5UUTNNalF6TURjeE1qRTNNekU1TmpFeE5ERXlPRGt5TG1wd1p3fGM5OWFjYjVlOWU1YzRiNGRmMzU3YzM4ZDY4MzZkNWU4MzY2ODk3OTUzYzc5MjRjYThkMWJlZWE4YWFhNzIzYjc&cacheHash=6A3FDADC"
   },
@@ -35,6 +35,18 @@ const produkter = [
     pris: 109.99,
     bilde: "https://www.kicks.no/globalassets/integrationimages/3616302020652.jpeg"
   },
+  {
+    navn: "JEAN PAUL GAULTIER LE MALE ELIXIR PARFUM",
+    beskrivelse: "En lidenskapelig og forlokkende parfyme.",
+    pris: 119.99,
+    bilde: "https://fredrikoglouisa.no/wp-content/uploads/2023/07/8435415076937.jpg"
+  },
+  {
+    navn: "HUGO BOSS THE SCENT FOR HER EDP",
+    beskrivelse: "En forførende og elegant parfyme med fresia, osmanthus og kakaobønner til henne.",
+    pris: 79.99,
+    bilde: "https://fredrikoglouisa.no/wp-content/uploads/2024/10/8005610298863.jpg"
+  }
 ];
 
 let handlekurv = [];
