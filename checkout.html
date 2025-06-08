@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+</head>
+
+<body>
+    <nav>
+        <h1 id="name">BEAN</h1>
+        <h1>Perfume Shop</h1>
+    </nav>
+
+    <main class="checkout-wrapper">
+        <h2>Din bestilling</h2>
+        <ul id="checkout-cart-list" class="checkout-list"></ul>
+
+        <div id="checkout-summary" class="summary-section">
+            <p><strong>Total: <span id="checkout-total">$0.00</span></strong></p>
+            <button id="confirm-order">Bekreft bestilling</button>
+        </div>
+    </main>
+
+    <script>
+        const handlekurv = JSON.parse(localStorage.getItem("handlekurv")) || [];
+        const cartList = document.getElementById("checkout-cart-list");
+        const totalEl = document.getElementById("checkout-total");
+        const summarySection = document.getElementById("checkout-summary");
+
+        function visCheckoutHandlekurv() {
+            cartList.innerHTML = "";
+            let total = 0;
+
+            if (handlekurv.length === 0) {
+                cartList.innerHTML = "<li>Handlekurven er tom.</li>";
+                summarySection.style.display = "none";
+                return;
+            }
+
+            handlekurv.forEach(vare => {
+                const li = document.createElement("li");
+                li.innerHTML = `${vare.navn} x${vare.antall} - $${(vare.pris * vare.antall).toFixed(2)}`;
+                cartList.appendChild(li);
+                total += vare.pris * vare.antall;
+            });
+
+            totalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        document.getElementById("confirm-order").addEventListener("click", () => {
+            localStorage.removeItem("handlekurv");
+            window.location.href = "thankyou.html";
+        });
+
+        visCheckoutHandlekurv();
+    </script>
+</body>
+
+</html>

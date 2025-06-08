@@ -132,14 +132,21 @@ function visHandlekurv() {
     liste.appendChild(li);
   }
 
+  const checkoutBtn = document.getElementById("checkout-btn");
+
+  const totalContainer = document.getElementById("cart-total-container");
+
   if (handlekurv.length > 0) {
-    const totalLi = document.createElement("li");
-    totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
-    totalLi.style.marginTop = "1rem"; // Litt avstand fra overskriften
-    liste.appendChild(totalLi);
     tomMelding.style.display = "none";
+    checkoutBtn.style.display = "block";
+    totalContainer.style.display = "block";
+    totalContainer.innerHTML = `
+      <p id="cart-total">Total: <strong>$${total.toFixed(2)}</strong></p>
+    `;
   } else {
     tomMelding.style.display = "block";
+    checkoutBtn.style.display = "none";
+    totalContainer.style.display = "none";
   }
 
   teller.textContent = antall;
@@ -149,7 +156,10 @@ document.getElementById("toggle-cart").addEventListener("click", function () {
   document.getElementById("cart-items").classList.toggle("åpen");
 });
 
-document.getElementById("clear-cart-btn").addEventListener("click", tømHandlekurv);
+document.getElementById("clear-cart-btn").addEventListener("click", () => {
+  const bekreft = confirm("Er du sikker på at du vil tømme handlekurven?");
+  if (bekreft) tømHandlekurv();
+});
 
 document.getElementById("lukk-cart").addEventListener("click", function () {
   document.getElementById("cart-items").classList.remove("åpen");
