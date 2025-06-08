@@ -155,24 +155,25 @@ document.getElementById("lukk-cart").addEventListener("click", function () {
   document.getElementById("cart-items").classList.remove("åpen");
 });
 
-function toggleCart() {
-  const cart = document.getElementById("cart-items");
-  const overlay = document.getElementById("overlay");
+const toggleCartBtn = document.getElementById("toggle-cart");
+const cart = document.getElementById("cart-items");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("lukk-cart");
 
-  const åpen = cart.classList.contains("åpen");
-  if (åpen) {
-    cart.classList.remove("åpen");
-    overlay.style.display = "none";
-  } else {
-    cart.classList.add("åpen");
-    overlay.style.display = "block";
-  }
-}
+toggleCartBtn.addEventListener("click", () => {
+  cart.classList.add("åpen");
+  overlay.style.display = "block";
+});
 
-function lukkCart() {
-  document.getElementById("cart-items").classList.remove("åpen");
-  document.getElementById("overlay").style.display = "none";
-}
+closeBtn.addEventListener("click", () => {
+  cart.classList.remove("åpen");
+  overlay.style.display = "none";
+});
+
+overlay.addEventListener("click", () => {
+  cart.classList.remove("åpen");
+  overlay.style.display = "none";
+});
 
 visProdukter();
 visHandlekurv();
